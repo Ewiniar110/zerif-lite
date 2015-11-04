@@ -1,7 +1,7 @@
  <?php
 	global $wpdb;
 	$star_array = array(); 
-	$results =  $wpdb->get_results('SELECT stars FROM yelp_business' );
+	$results =  $wpdb->get_results('SELECT stars FROM business' );
 	foreach ( $results as $result ) {
 
 	$star = $result->stars;
@@ -50,8 +50,9 @@
 ?>
 	
 <script type="text/javascript">
+//line chart of stars
 $(function () {
-    $('#graph_stars').highcharts({
+    $('#star_graph').highcharts({
         title: {
             text: 'Monthly Average Temperature',
             x: -20 //center
@@ -85,21 +86,22 @@ $(function () {
         }]
     });
 });
-//convert json to array
+
 var star = <?php echo json_encode($x_axis) ?>;
 var counts = <?php echo json_encode($y_axis) ?>;
-//using jquery to do the conversion
+var name = Array();
+var data = Array();
 var arrName = $.map(star, function(el) { return el });
 var arrCounts = $.map(counts, function(el) { return el });
-//store the data in a 2-d array
 var dataArrayFinal = Array();
 for(j=0;j<arrName.length;j++) { 
    var temp = new Array(arrName[j],arrCounts[j]); 
    dataArrayFinal[j] = temp;     
 }
-//plot pie chart of star counts distribution
+
+//2-d pie chart plotting
 $(function () {
-    $('#graph_stars').highcharts({
+    $('#star_graph_pie1').highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -132,9 +134,9 @@ $(function () {
         }]
     });
 });
-//alert(dataArrayFinal);
+//3-d pie chart
 $(function () {
-    $('#graph_star').highcharts({
+    $('#star_graph_pie').highcharts({
         chart: {
             type: 'pie',
             options3d: {
@@ -168,4 +170,3 @@ $(function () {
     });
 });
 </script>
-

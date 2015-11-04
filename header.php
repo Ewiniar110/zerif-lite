@@ -34,18 +34,13 @@
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/html5.js"></script>
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/ie.css" type="text/css">
 <![endif]-->
-
-<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.min.js"></script>
+<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery-1.11.3.min.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/highcharts.js"></script>
-<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/highcharts-3d.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/exporting.js"></script>
-
-
+<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/hc.js"></script>
+<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/highcharts-3d.js"></script>
 <?php wp_head(); ?>
-
 </head>
-
-
 
 <?php if(isset($_POST['scrollPosition'])): ?>
 
@@ -87,10 +82,6 @@ endif; ?>
 <header id="home" class="header">
 
 	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
-<div id="graph_stars" style="width: 600px; height: 400px; margin: 0 auto;float:right"></div>
-<?php include "star-graph.php"?>
-		<div class="container">
-
 			<div class="navbar-header responsive-logo">
 
 				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -142,7 +133,7 @@ endif; ?>
 
 
 			</div>
-
+			
 			<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
 
 				<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); ?>

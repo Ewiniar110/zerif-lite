@@ -1,6 +1,8 @@
 <?php get_header(); ?>
 
-
+<div id="star_graph" style="width: 600px; height: 400px; margin: 0 auto"></div>
+<div id="star_graph_pie" style="width: 600px; height: 400px; margin: 0 auto"></div>
+<?php include "star-graph.php"?>
 
 <?php
 if ( get_option( 'show_on_front' ) == 'page' ) {
@@ -8,9 +10,6 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	<div class="clear"></div>
 
 	</header> <!-- / END HOME SECTION  -->
-
-
-
 		<div id="content" class="site-content">
 
 	<div class="container">
@@ -24,6 +23,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 		<div id="primary" class="content-area">
 
 			<main id="main" class="site-main" role="main">
+
+
 
 			<?php if ( have_posts() ) : ?>
 
@@ -298,8 +299,9 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 <div id="content" class="site-content">
 
 
-<?php
 
+<?php
+	
 	/* OUR FOCUS SECTION */
 
 	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
@@ -323,7 +325,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	/* ABOUT US */
 
 	$zerif_aboutus_show = get_theme_mod('zerif_aboutus_show');
-	//echo 'hello';
+
 	if( isset($zerif_aboutus_show) && $zerif_aboutus_show != 1 ):
 
 		include get_template_directory() . "/sections/about_us.php";
