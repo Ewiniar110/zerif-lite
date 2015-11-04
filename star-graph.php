@@ -1,7 +1,7 @@
  <?php
 	global $wpdb;
 	$star_array = array(); 
-	$results =  $wpdb->get_results('SELECT stars FROM business' );
+	$results =  $wpdb->get_results('SELECT stars FROM yelp_business' );
 	foreach ( $results as $result ) {
 
 	$star = $result->stars;
