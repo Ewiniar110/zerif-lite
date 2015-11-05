@@ -22,12 +22,18 @@
 
 <div class="container">
 
-<?php /*$terms = get_the_terms( $post->ID , 'location' );
-if($terms) {
-	foreach( $terms as $term ) {
-		echo $term->description.'<br />';
+<?php
+	global $wpdb;
+	$year_array = array(); 
+	$results =  $wpdb->get_results('SELECT yelping_since FROM yelp_user LIMIT 500' );
+	foreach ( $results as $result ) {
+	$year = $result->yelping_since;
+	array_push($year_array,$year);
+		//var_dump($year);
 	}
-}*/
+	var_dump($year_array);
+
+	//$stars_count = array_count_values($star_array);
 ?>
 
 
