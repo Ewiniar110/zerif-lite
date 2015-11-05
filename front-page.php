@@ -3,6 +3,7 @@
 <div id="star_graph" style="width: 600px; height: 400px; margin: 0 auto"></div>
 <div id="star_graph_pie" style="width: 600px; height: 400px; margin: 0 auto"></div>
 <?php include "star-graph.php"?>
+<?php include "yelp-since-graph.php"?>
 
 <?php
 if ( get_option( 'show_on_front' ) == 'page' ) {

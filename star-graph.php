@@ -1,7 +1,7 @@
  <?php
 	global $wpdb;
 	$star_array = array(); 
-	$results =  $wpdb->get_results('SELECT stars FROM business' );
+	$results =  $wpdb->get_results('SELECT stars FROM yelp_business' );
 	foreach ( $results as $result ) {
 
 	$star = $result->stars;
@@ -101,7 +101,7 @@ for(j=0;j<arrName.length;j++) {
 
 //2-d pie chart plotting
 $(function () {
-    $('#star_graph_pie1').highcharts({
+    $('#star_graph_pie').highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -136,7 +136,7 @@ $(function () {
 });
 //3-d pie chart
 $(function () {
-    $('#star_graph_pie').highcharts({
+    $('#star_graph_pie1').highcharts({
         chart: {
             type: 'pie',
             options3d: {
