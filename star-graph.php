@@ -101,7 +101,7 @@ for(j=0;j<arrName.length;j++) {
 
 //2-d pie chart plotting
 $(function () {
-    $('#star_graph_pie').highcharts({
+    $('#star_graph_pie1').highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
@@ -136,7 +136,7 @@ $(function () {
 });
 //3-d pie chart
 $(function () {
-    $('#star_graph_pie1').highcharts({
+    $('#star_graph_pie').highcharts({
         chart: {
             type: 'pie',
             options3d: {

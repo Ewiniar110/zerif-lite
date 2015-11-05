@@ -22,20 +22,8 @@
 
 <div class="container">
 
-<?php
-	global $wpdb;
-	$year_array = array(); 
-	$results =  $wpdb->get_results('SELECT yelping_since FROM yelp_user LIMIT 500' );
-	foreach ( $results as $result ) {
-	$year = $result->yelping_since;
-	array_push($year_array,$year);
-		//var_dump($year);
-	}
-	var_dump($year_array);
-
-	//$stars_count = array_count_values($star_array);
-?>
-
+<?php include "yelping-since.php"?>
+<div id="user_increase" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
 <?php //echo do_shortcode( '[wp_charts title="mypie" type="pie" align="alignright" margin="5px 20px" data="26342,10422,19084,26950,2190,14708,4728,1274,16670"]' ); ?>
