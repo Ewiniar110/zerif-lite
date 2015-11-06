@@ -7,7 +7,7 @@
 <?php
 if ( get_option( 'show_on_front' ) == 'page' ) {
     ?>
-	<div class="clear"></div>
+	<div class="clear"></di>
 
 	</header> <!-- / END HOME SECTION  -->
 		<div id="content" class="site-content">

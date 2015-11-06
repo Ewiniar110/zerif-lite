@@ -1,52 +1,20 @@
  <?php
 	global $wpdb;
-	$star_array = array(); 
+	$star_counts = array();
+	$star_array= Array();
+	//initialize the star array and counts array
+	for($i = 0;$i<9;$i++){
+		array_push($star_array,strval($i*0.5+0.5));
+		array_push($star_counts,0);
+	}
 	$results =  $wpdb->get_results('SELECT stars FROM yelp_business' );
 	foreach ( $results as $result ) {
-
+	//calculate counts
 	$star = $result->stars;
-	array_push($star_array,$star);
+	$star_float = floatval($star);
+	$index = intval($star_float/0.5) - 2;
+	$star_counts[$index]++;
 	}
-	$stars_count = array_count_values($star_array);
-	global $x_axis,$y_axis;
-	$x_axis = array();
-	$y_axis = array();
-	$x_axis_float = array(); // used for sortting
-	//unifying the data type to string for x_axis
-	foreach($stars_count as $x => $value){
-		if(!is_string($x)){
-			array_push($x_axis,strval($x));
-			array_push($x_axis_float,floatval($x));
-			}else{
-				array_push($x_axis,$x);
-				array_push($x_axis_float,floatval($x));
-			}
-		
-		array_push($y_axis,$value);
-	}
-	//sorting according to x value
-	$x_temp;
-	$y_temp;
-	$X_f_temp;
-	$length = count($x_axis);
-	//var_dump($x_axis_float);
-	//var_dump(1.11);
-	for($i =0;$i<($length-1);$i++){
-		for($j=$i+1;$j<$length;$j++){
-			if($x_axis_float[$j]<$x_axis_float[$i]){
-					$x_f_temp = $x_axis_float[$j];
-					$x_axis_float[$j] = $x_axis_float[$i];
-					$x_axis_float[$i] = $x_f_temp;
-					$x_temp = $x_axis[$j];
-					$x_axis[$j] = $x_axis[$i];
-					$x_axis[$i] = $x_temp;
-					$y_temp = $y_axis[$j];
-					$y_axis[$j] = $y_axis[$i];
-					$y_axis[$i] = $y_temp;
-			}
-		}
-	}
-	//var_dump($x_axis_float);
 ?>
 	
 <script type="text/javascript">
@@ -62,7 +30,7 @@ $(function () {
             x: -20
         },
         xAxis: {
-            categories: <?php echo json_encode($x_axis) ?>
+            categories: <?php echo json_encode($star_array) ?>
         },
         yAxis: {
             title: {
@@ -82,13 +50,13 @@ $(function () {
         },
         series: [{
             name: 'Tokyo',
-            data: <?php echo json_encode($y_axis) ?>
+            data: <?php echo json_encode($star_counts) ?>
         }]
     });
 });
 
-var star = <?php echo json_encode($x_axis) ?>;
-var counts = <?php echo json_encode($y_axis) ?>;
+var star = <?php echo json_encode($star_array) ?>;
+var counts = <?php echo json_encode($star_counts) ?>;
 var name = Array();
 var data = Array();
 var arrName = $.map(star, function(el) { return el });
@@ -101,7 +69,7 @@ for(j=0;j<arrName.length;j++) {
 
 //2-d pie chart plotting
 $(function () {
-    $('#star_graph_pie1').highcharts({
+    $('#star_graph_pie11').highcharts({
         chart: {
             plotBackgroundColor: null,
             plotBorderWidth: null,
