@@ -21,8 +21,8 @@
 	$temp_count =0;
 	while($temp_count <$row_count){
 		//each result in the result_array contain 50000 rows
-		if(($row_count - $temp_count) >= 50000){
-			$sql = 'SELECT yelping_since FROM yelp_user LIMIT '.strval(50000).' OFFSET '.strval($temp_count);
+		if(($row_count - $temp_count) >= 30000){
+			$sql = 'SELECT yelping_since FROM yelp_user LIMIT '.strval(30000).' OFFSET '.strval($temp_count);
 			$results = $wpdb->get_results($sql);
 			foreach ( $results as $result ) {
 				//we only interested in the year
@@ -31,7 +31,7 @@
 				$year = intval($s)-intval('2004');
 				$user_counts[$year] +=1;
 			}
-			$temp_count = $temp_count+50000;
+			$temp_count = $temp_count+30000;
 		}else{
 			// the last group of rows
 			$sql = 'SELECT yelping_since FROM yelp_user LIMIT '.strval($row_count-$temp_count).' OFFSET '.strval($temp_count);

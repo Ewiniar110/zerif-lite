@@ -22,7 +22,7 @@
 
 <div class="container">
 
-<?php include "yelping-since.php"?>
+<?php include "review.php"?>
 <div id="user_increase" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
