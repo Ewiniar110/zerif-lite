@@ -1,12 +1,13 @@
 <?php
 	global $wpdb;
 	$state_array= Array();
-	$user_counts= Array();
+	//to save the counts of business with parking lots
+	$business_counts= Array();
 	$state_results= $wpdb->get_results('SELECT DISTINCT state FROM yelp_business');
 	foreach ( $state_results as $state_result ) {
 				$state = $state_result->state;
 				array_push($state_array,$state);
-				array_push($user_counts,0);
+				array_push($business_counts,0);
 			}
 	//row counts in the table of yelp_user
 	$row_count = $wpdb->get_results('SELECT COUNT(state) FROM yelp_business');
@@ -25,9 +26,9 @@
 			foreach ( $results as $result ) {
 				//we only interested in the year
 				$s = $result->state;
-				//for plotting in highchart, we can not use associative array. This way, we need to first get the index of int and save the count
+				//for plotting in highchart, we can not use associative array. This way, we need to first get the index of type int and save the count
 				$index = array_search($s,$state_array);
-				$user_counts[$index] +=1;
+				$business_counts[$index] +=1;
 			}
 			$temp_count = $temp_count+30000;
 		}else{
@@ -38,12 +39,12 @@
 				//we only interested in the year
 				$s = $result->state;
 				$index = array_search($s,$state_array);
-				$user_counts[$index] +=1;
+				$business_counts[$index] +=1;
 			}
 			$temp_count = $row_count+1;
 		}	
 	}
-	var_dump($user_counts);
+	var_dump($business_counts);
 ?>
 <?php var_dump($state_array); ?>
 <script type="text/javascript">
@@ -87,8 +88,8 @@ $(function () {
             }
         },
         series: [{
-            name: 'User Increase',
-            data: <?php echo json_encode($user_counts) ?>
+            name: 'Business with Parking Lot',
+            data: <?php echo json_encode($business_counts) ?>
         }]
     });
 });

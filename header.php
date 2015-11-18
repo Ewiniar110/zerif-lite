@@ -39,6 +39,7 @@
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/exporting.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/hc.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/highcharts-3d.js"></script>
+<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/drilldown.js"></script>
 <?php wp_head(); ?>
 </head>
 

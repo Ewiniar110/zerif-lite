@@ -21,8 +21,8 @@
 <footer id="footer">
 
 <div class="container">
-
-<?php include "parking-lot.php"?>
+<div gmap title="Our Location" show_heading="1" latitude="23.2012841" longtitude="90.01247147" width="80%" height="450px" map_type="ROADMAP" >
+<?php include "yelping-since-preprocessedDB.php"?>
 <div id="user_increase" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 
 
