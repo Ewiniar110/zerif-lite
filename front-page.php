@@ -1,8 +1,12 @@
 <?php get_header(); ?>
 
-<div id="star_graph" style="width: 600px; height: 400px; margin: 0 auto"></div>
-<div id="star_graph_pie" style="width: 600px; height: 400px; margin: 0 auto"></div>
-<?php include "star-graph.php"?>
+<?php 
+include "star-graph.php";
+include "yelping-since-preprocessedDB.php";
+include "resturant_category.php";
+include "funny_cool_useful_review_contrast.php";
+include "resturant_map.php";
+?>
 
 <?php
 if ( get_option( 'show_on_front' ) == 'page' ) {
@@ -302,13 +306,15 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 <?php
 	
-	/* OUR FOCUS SECTION */
+	/* review star distribution analysis */
+	$zerif_latestnews_show = get_theme_mod('zerif_latestnews_show');
 
-	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
+	if( isset($zerif_latestnews_show) && $zerif_latestnews_show != 1 ):
 
-	if( isset($zerif_ourfocus_show) && $zerif_ourfocus_show != 1 ):
-		include get_template_directory() . "/sections/our_focus.php";
+		include get_template_directory() . "/sections/star-section.php";
+
 	endif;
+	
 
 
 	/* RIBBON WITH BOTTOM BUTTON */
@@ -316,42 +322,44 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	include get_template_directory() . "/sections/ribbon_with_bottom_button.php";
 
-
-
-
-
-
-
-	/* ABOUT US */
+	/* featured-restaurant-section */
 
 	$zerif_aboutus_show = get_theme_mod('zerif_aboutus_show');
 
 	if( isset($zerif_aboutus_show) && $zerif_aboutus_show != 1 ):
 
-		include get_template_directory() . "/sections/about_us.php";
+		include get_template_directory() . "/sections/featured-restaurant-section.php";
 	endif;
-
-
-	/* OUR TEAM */
-
-	$zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
-
-	if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
-
-		include get_template_directory() . "/sections/our_team.php";
-	endif;
-
-
-	/* TESTIMONIALS */
+	
+	/* user-increase-section */
 
 	$zerif_testimonials_show = get_theme_mod('zerif_testimonials_show');
 
 	if( isset($zerif_testimonials_show) && $zerif_testimonials_show != 1 ):
 
-		include get_template_directory() . "/sections/testimonials.php";
+		include get_template_directory() . "/sections/user-increase-section.php";
+	endif;
+	
+	/* review-comparison-section */
+
+	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
+
+	if( isset($zerif_ourfocus_show) && $zerif_ourfocus_show != 1 ):
+		include get_template_directory() . "/sections/review-comparison-section.php";
 	endif;
 
 
+
+	
+
+	/* Restaurant Map */
+
+	$zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
+
+	if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
+
+		include get_template_directory() . "/sections/restaurant-map-section.php";
+	endif;
 
 
 	/* RIBBON WITH RIGHT SIDE BUTTON */
@@ -361,138 +369,38 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 
 
-	/* LATEST NEWS */
-	$zerif_latestnews_show = get_theme_mod('zerif_latestnews_show');
-
-	if( isset($zerif_latestnews_show) && $zerif_latestnews_show != 1 ):
-
-		include get_template_directory() . "/sections/latest_news.php";
-
-	endif;
-
-
 
 	/* CONTACT US */
 	$zerif_contactus_show = get_theme_mod('zerif_contactus_show');
-
+	echo '<script>var src1 = '.json_encode(get_template_directory_uri()).'+"/images/Xuezhang.jpg"</script>';
 	if( isset($zerif_contactus_show) && $zerif_contactus_show != 1 ):
 		?>
 		<section class="contact-us" id="contact">
 			<div class="container">
 				<!-- SECTION HEADER -->
-				<div class="section-header">
+				
 					
 					<?php
 					
 						$zerif_contactus_title = get_theme_mod('zerif_contactus_title',__('Get in touch','zerif-lite'));
 						if ( !empty($zerif_contactus_title) ):
-							echo '<h2 class="white-text">'.$zerif_contactus_title.'</h2>';
+							echo '<p class="about-us-header">about us</p>';
 						endif;
-					
-						$zerif_contactus_subtitle = get_theme_mod('zerif_contactus_subtitle');
-						if(isset($zerif_contactus_subtitle) && $zerif_contactus_subtitle != ""):
-							echo '<h6 class="white-text">'.$zerif_contactus_subtitle.'</h6>';
-						endif;
+
 					?>
-				</div>
+				
 				<!-- / END SECTION HEADER -->
 
 				<!-- CONTACT FORM-->
 				<div class="row">
-
-					<?php
-
-						if(isset($emailSent) && $emailSent == true) :
-
-							echo '<div class="notification success"><p>'.__('Thanks, your email was sent successfully!','zerif-lite').'</p></div>';
-
-						elseif(isset($_POST['submitted'])):
-
-							echo '<div class="notification error"><p>'.__('Sorry, an error occured.','zerif-lite').'</p></div>';
-
-						endif;
-
-
-
-						if(isset($nameError) && $nameError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($nameError).'</p></div>';
-
-						endif;
-
-						if(isset($emailError) && $emailError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($emailError).'</p></div>';
-
-						endif;
-
-						if(isset($subjectError) && $subjectError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($subjectError).'</p></div>';
-
-						endif;
-
-						if(isset($messageError) && $messageError != '') :
-
-							echo '<div class="notification error"><p>'.esc_html($messageError).'</p></div>';
-
-						endif;
-
-					?>
-
-					<form role="form" method="POST" action="" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
-
-						<input type="hidden" name="scrollPosition">
-
-						<input type="hidden" name="submitted" id="submitted" value="true" />
-
-						<div class="col-lg-4 col-sm-4 zerif-rtl-contact-name" data-scrollreveal="enter left after 0s over 1s">
-
-							<input required="required" type="text" name="myname" placeholder="<?php _e('Your Name','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
-
-						</div>
-
-						<div class="col-lg-4 col-sm-4 zerif-rtl-contact-email" data-scrollreveal="enter left after 0s over 1s">
-
-							<input required="required" type="email" name="myemail" placeholder="<?php _e('Your Email','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
-
-						</div>
-
-						<div class="col-lg-4 col-sm-4 zerif-rtl-contact-subject" data-scrollreveal="enter left after 0s over 1s">
-
-							<input required="required" type="text" name="mysubject" placeholder="<?php _e('Subject','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
-
-						</div>
-
-						<div class="col-lg-12 col-sm-12" data-scrollreveal="enter right after 0s over 1s">
-
-							<textarea name="mymessage" class="form-control textarea-box" placeholder="<?php _e('Your Message','zerif-lite'); ?>"><?php if(isset($_POST['mymessage'])) { echo esc_html($_POST['mymessage']); } ?></textarea>
-
-						</div>
-	
-						<?php
-							$zerif_contactus_button_label = get_theme_mod('zerif_contactus_button_label',__('Send Message','zerif-lite'));
-							if( !empty($zerif_contactus_button_label) ):
-								echo '<button class="btn btn-primary custom-button red-btn" type="submit" data-scrollreveal="enter left after 0s over 1s">'.$zerif_contactus_button_label.'</button>';
-							endif;
-						?>
-						
-						<?php 
-
-							$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
-							$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
-							$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
-
-							if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
-
-								echo '<div class="g-recaptcha zerif-g-recaptcha" data-sitekey="' . $zerif_contactus_sitekey . '"></div>';
-
-							endif;
-
-						?>
-
-					</form>
-
+					<div class="contact1">
+						<img class="contact-img1" id="contact_img1"><br>
+						<p class="contact-intro1">Xuezhang (Alex) Hu, a guy who likes spicy food, sports and programming.<br>Email: hxzpork@gmail.com</p>
+					</div>
+					<div class="contact2">
+						<img class="contact-img2" id="contact_img2"><br>
+						<p class="contact-intro2">Pan Tan</p>
+					</div>
 				</div>
 
 				<!-- / END CONTACT FORM-->
@@ -505,3 +413,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 }
 get_footer(); ?>
+<script>
+	console.log(src1);
+	$("#contact_img1").attr("src", src1);
+</script>

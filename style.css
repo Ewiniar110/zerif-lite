@@ -130,7 +130,7 @@ padding-left: 0 !important;
 /* Selection colours (easy to forget) */
 ::selection {
 	background: #FC6D6D;
-	color: #FFF;
+	color: black;
 }
 ::-moz-selection {
 	background: #FC6D6D;
@@ -276,38 +276,31 @@ h6 {
 /*--------------------------------------------------------------
 3.0 Buttons
 --------------------------------------------------------------*/
-.buttons {
-	text-align: center;
-	margin-top: 45px;
-}
-.button {
-	display: inline-block !important;
-	text-align: center;
-	text-transform: uppercase;
-	padding: 10px 35px 10px 35px;
-	border-radius: 4px;
-	margin: 10px;
-}
+
+
 .custom-button {
 	display: inline-block !important;
 	text-align: center;
 	text-transform: uppercase;
-	padding: 13px 35px 13px 35px;
 	border-radius: 4px;
-	margin: 10px;
+	margin-top: 10px;
 	border: none;
 }
 .red-btn {
 	background: #e96656;
+	margin-top: 240px;
 }
 .green-btn {
 	background: #20AA73;
+	margin: 238px 0 0 40px;
 }
 .blue-btn {
 	background: #3ab0e2;
+	margin: 238px 0 0 40px;
 }
 .yellow-btn {
 	background: #E7AC44;
+	margin: 238px 0 0 40px;
 }
 .red-btn,.green-btn,.blue-btn,.yellow-btn {
 	color: #FFF !important;
@@ -440,7 +433,7 @@ thead th{
 	color: #f7d861;
 }
 .dark-text {
-	color: #404040;
+	color: white;
 }
 .white-text {
 	color: #FFFFFF;
@@ -532,7 +525,6 @@ input[type="reset"],
 input[type="submit"] {
 	text-align: center;
 	text-transform: uppercase;
-	padding: 13px 35px 13px 35px;
 	border-radius: 4px;
 	margin: 10px;
 	border: none;
@@ -606,6 +598,10 @@ input[type="url"],
 input[type="password"],
 input[type="search"] {
 	padding: 3px;
+	border-radius: 3px;
+	width: 150px;
+	float: left;
+	margin-left: 20px;
 }
 textarea {
 	overflow: auto; /* Removes default vertical scrollbar in IE6/7/8/9 */
@@ -617,7 +613,6 @@ textarea {
 .entry-content input[type="button"],
 .entry-content input[type="reset"],
 .entry-content input[type="submit"] {
-	padding: 5px 20px 5px 20px;
 }
 .entry-content button:hover,
 .entry-content input[type="button"]:hover,
@@ -1332,7 +1327,7 @@ object {
 }
 .section-header {
 	text-align: center;
-	padding-bottom: 75px;
+	padding-bottom: 55px;
 }
 .section-header h2 {
 	padding-bottom: 10px;
@@ -1341,7 +1336,7 @@ object {
 	display: inline-block;
 	font-size: 45px;
 	text-transform: uppercase;
-	margin-top: 15px;
+	margin-top: px;
 	margin-bottom: 0;
 }
 .section-header h6 {
@@ -1385,11 +1380,12 @@ object {
 	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 }
 .header-content-wrap {
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0,0,0,.075);
 	position: relative;
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
-	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
-	padding: 285px 0 210px;
+	box-shadow: 0px 5px 11px 0px rgba(187, 158, 158, 0.08);
+	padding: 80px 0 330px;
+	height: 100px;
 }
 .header_title {
     float: left;
@@ -1631,6 +1627,8 @@ ul.nav > li.current_page_item.current > a:before {
 	text-transform: uppercase;
 	font-size: 55px;
 	float:none;
+	height: 0px;
+	margin-top: 0px;
 }
 /* Short Messages */
 .bottom-message-section {
@@ -1740,10 +1738,9 @@ ul.nav > li.current_page_item.current > a:before {
 	border-radius: 50%;
 }
 .focus {
-	padding-bottom: 100px;
+	padding-bottom: 50px;
 	overflow: hidden;
-	background: #FFFFFF;
-
+	background: #180E1C;
 }
 .focus .row {
  	text-align:center;
@@ -2041,8 +2038,7 @@ width: -webkit-calc(100% / 4);
  **   Section: Abot us;              -----
 -----------------------------------------*/
 .about-us {
-	background: #272727;
-	color: #FFF;
+	background: #dbbf56;
 	padding-bottom: 100px;
 }
 .about-us .row {
@@ -2061,9 +2057,12 @@ width: -webkit-calc(100% / 4);
 }
 .about-us p {
 	text-align: left;
-	color: #939393;
 	font-size: 14px;
 	line-height: 25px;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 100%;
+	margin: 70px 0 0px 0;
+	width: 400px;
 }
 .about-us .column {
 	margin-bottom: 78px;
@@ -2218,8 +2217,6 @@ width: -webkit-calc(100% / 4);
  **   Section: Our team;              -----
 -----------------------------------------*/
 .our-team {
-	padding-bottom: 66px;
-	padding-top: 100px;
 	background: #FFFFFF;
 }
 .team-member {
@@ -2612,8 +2609,8 @@ width: -webkit-calc(100% / 4);
  **   Testionial           -----
 -----------------------------------------*/
 .testimonial {
-	background: #dbbf56;
-	padding-bottom: 90px;
+	background: #FFF;
+	padding-bottom: 70px;
 }
 .testimonial .section-header h6 {
 	color: #FFF;
@@ -2715,8 +2712,9 @@ width: -webkit-calc(100% / 4);
  **   Contact us             -----
 -----------------------------------------*/
 .contact-us {
-	background: rgba(0, 0, 0, 0.5);
-	padding-bottom: 95px;
+	background: rgba(0,0,0,.075);
+	padding-bottom: 45px;
+	padding-top: 20px;
 }
 .contact-us .section-header h6 {
 	color: #FFF;
@@ -3030,6 +3028,8 @@ article .posted-on a:hover{
     width: 100%;
     margin-right: 0;
     margin-left: 0;
+    margin-top: 0;
+    margin-bottom: 30 px;
 }
 /* Calendar style */
 /* Calendar Widget */
@@ -4032,7 +4032,6 @@ article .posted-on a:hover{
 .woocommerce-page .woocommerce button.button {
 	font-size: 12px;
 	margin-left: 0;
-	padding: 13px 35px 13px 35px;
 }
 .woocommerce button.button {
 	width: 100%;
@@ -4846,4 +4845,227 @@ body.custom-background {
 
 .zerif-copyright-box {
 	width: 100%;
+}
+/*---------------------------------------
+ **   Data Analysis Div           -----
+-----------------------------------------*/
+.data-show-div{
+	width:1100px;
+	height:450px;
+	margin:0 auto;
+	background-color:#fff;
+	border-radius:20px;
+}
+.data-show-div-bigger{
+	width:1100px;
+	height:550px;
+	margin: 50px 0 0 0;
+	background-color:#fff;
+	border-radius: 20px;
+}
+.user-increase-fig{
+	width:650px;
+	height:450px;
+	float:left;
+	padding:30px;
+}
+.user-increase-comments{
+	padding-top: 200px;
+	width: 350px;
+	height:350px;
+	float: right;
+	margin-right: 50px;
+}
+.star-graph-figI{
+	width: 500px; 
+	height: 400px; 
+	float:left;
+}
+.star-graph-figII{
+	width: 500px; 
+	height: 400px; 
+	float:right;
+}
+.star-comments{
+	width: 500px; 
+	height: 40px;
+	margin-left: 600px;
+}
+.resturant-category-fig{
+	width:650px;
+	height:530px;
+	float:left;
+	padding:30px;
+}
+.resturant-category-comments{
+	padding-top: 30px;
+	width:450px;
+	height:350px;
+	float:right;
+}
+.review-comparison-comments{
+	padding-top: 300px;
+	width: 350px;
+	height:350px;
+	float:right;
+	margin-right: 70px;
+}
+.map-section{
+	position:relative;
+	width:100%;
+	margin:0px;
+	padding:0px;
+	height:670px;
+	background-color:#fff;
+}
+.map-div{
+	width:100%;
+	padding:0px;
+	margin:0px;
+	height:670px;
+	background-color:#fff;
+}
+.map-input{
+	z-index:1;
+	position:absolute;
+	height: 350px;
+	top:50px;
+	right: 80px;
+	background-color:gray;
+	opacity: 0.75;
+	width: 300px;
+}
+.map-input:hover{
+	opacity:0.9;
+}
+.button-map {
+	display: inline-block !important;
+	text-align: center;
+	height:35px;
+	width:120px;
+	font-size:1em;
+	text-transform: uppercase;
+	border-radius: 4px;
+	margin-top: 20px;
+	opacity: 0.8;
+}
+#team{
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+#team-container{
+	width:100%;
+	margin:0px;
+	padding:0px;
+}
+.map-input-text1{
+	margin-left: 23px;
+	margin-bottom: 3px;
+	margin-top: 0;
+	width: 30px;
+	font-weight: bold;
+}
+.map-input-text2{
+	margin-left: 23px;
+	margin-bottom: 3px;
+	margin-top: 15px;
+	width: 70px;
+	font-weight: bold;
+}
+.map-input-text3{
+	margin-left: 23px;
+	margin-top: 15px;
+	margin-bottom: 3px;
+	width: 70px;
+	font-weight: bold;
+}
+.warning{
+	margin: 0;
+	color: red;
+}
+.map-header{
+	font-size: 1.4em;
+	margin: 20px 5px 5px 10px;
+	font-weight: bold;
+}
+.header{
+	font-size:320%;
+	font-family:Arial,Helvetica,sans-serif;
+	color: #E80707;
+}
+.comments-font{
+	font-family:Arial,Helvetica,sans-serif;
+	font-size: 100%;
+	text-align: left;
+}
+.zipcode-reminder{
+	color: #1862E2;
+	font-size: 0.8em;
+	margin-left: 23px;
+	margin-bottom: 3px;
+	margin-top: 0px;
+	width: 150px;
+	font-weight: bold;
+}
+.map-option-select{
+	size: 1;
+	padding: 3px;
+	border-radius: 3px;
+	width: 150px;
+	float: left;
+	margin-left: 20px;
+	overflow-x: scroll;
+	overflow-y: scroll;
+}
+.star-header{
+	color: #404040;
+}
+.user-increase-header{
+	color: #404040;
+}
+.contact1{
+	margin:0 0 50px 400px;
+	height:220px;
+	width:120px;
+	float:left;
+}
+.contact-img1{
+	height: 150px;
+	width: 100px;
+	margin-left: 30px;
+}
+.contact-intro1{
+	width: 180px;
+	color: white;
+	margin-bottom: 30 px;
+	margin-top: 20px;
+}
+.contact2{
+	margin:0 400px 50px 0;
+	height:220px;
+	width:108px;
+	float:right;
+}
+.contact-img2{
+	height:192px;
+	width:108px;
+}
+
+.contact-intro2{
+	color:white;
+}
+.about-us-header{
+	color: white;
+	padding-bottom: 0;
+	margin-top: 10px;
+	margin-bottom: 20px;
+	font-size: 2em;
+	text-transform: uppercase;
+}
+.yelp-challenge-btn{
+	background: #31708f;
+}
+.yelp-challenge-btn:hover{
+	background:blue;
 }

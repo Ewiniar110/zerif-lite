@@ -87,9 +87,10 @@ $(function () {
 			data:ddTemp
 		});
 	}
-     $('#user_increase').highcharts({
+     $('#user_increase_fig').highcharts({
         chart: {
-            type: 'column'
+            type: 'column',
+			borderRadius: '20px'
         },
         title: {
             text: 'Increase in User of Yelp from 2004 to 2015'

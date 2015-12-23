@@ -37,9 +37,9 @@
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery-1.11.3.min.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/highcharts.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/exporting.js"></script>
-<script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/hc.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/highcharts-3d.js"></script>
 <script type='text/javascript' src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/drilldown.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js"></script>
 <?php wp_head(); ?>
 </head>
 
@@ -82,67 +82,5 @@ endif; ?>
 
 <header id="home" class="header">
 
-	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
-			<div class="navbar-header responsive-logo">
-
-				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
-
-				<span class="sr-only"><?php _e('Toggle navigation','zerif-lite'); ?></span>
-
-				<span class="icon-bar"></span>
-
-				<span class="icon-bar"></span>
-
-				<span class="icon-bar"></span>
-
-				</button>
-
-
-
-				<?php
-
-					$zerif_logo = get_theme_mod('zerif_logo');
-
-					if(isset($zerif_logo) && $zerif_logo != ""):
-
-						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
-
-							echo '<img src="'.$zerif_logo.'" alt="'.get_bloginfo('title').'">';
-
-						echo '</a>';
-
-					else:
-
-						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
-						
-							if( file_exists(get_stylesheet_directory()."/images/logo.png")):
-							
-								echo '<img src="'.get_stylesheet_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'">';
-							
-							else:
-								
-								echo '<img src="'.get_template_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'">';
-								
-							endif;
-
-						echo '</a>';
-
-					endif;
-
-				?>
-
-
-
-			</div>
-			
-			<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
-
-				<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); ?>
-
-			</nav>
-
-		</div>
-
-	</div>
 
 	<!-- / END TOP BAR -->
