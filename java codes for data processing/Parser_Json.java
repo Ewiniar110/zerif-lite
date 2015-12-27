@@ -30,7 +30,7 @@ public class Parser_Json {
 				long usefulStars = (long) jsonObject.get(type2);
 				allCnts++;
 				allStarsArray[(int)usefulStars-1]++;
-				if(usefulCnts >0){
+				if(usefulCnts > 0){
 					cnts++;
 					starsArray[(int)usefulStars-1]++;
 				}
