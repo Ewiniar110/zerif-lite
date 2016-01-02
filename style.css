@@ -1643,7 +1643,7 @@ ul.nav > li.current_page_item.current > a:before {
 }
 /*----  SECTION:  HOME > LATEST NEWS   ----*/
 .latest-news {
-	padding-bottom: 66px;
+	padding-bottom: 166px;
 	padding-top: 100px;
 	background: #FFFFFF;
 }
@@ -4887,9 +4887,10 @@ body.custom-background {
 	float:right;
 }
 .star-comments{
-	width: 500px; 
-	height: 40px;
+	width: 600px;
+	height: 60px;
 	margin-left: 600px;
+	clear: both;
 }
 .resturant-category-fig{
 	width:650px;
@@ -5025,21 +5026,22 @@ body.custom-background {
 	color: #404040;
 }
 .contact1{
-	margin:0 0 50px 400px;
 	height:220px;
 	width:120px;
-	float:left;
+	float: left;
+	margin-left: 285px;
 }
 .contact-img1{
 	height: 150px;
 	width: 100px;
-	margin-left: 30px;
+	margin-left: 60px;
 }
 .contact-intro1{
-	width: 180px;
-	color: white;
+	width: 250px;
+	color: #ffffff;
 	margin-bottom: 30 px;
-	margin-top: 20px;
+	margin-top: 18px;
+	font-size: 1.2em;
 }
 .contact2{
 	margin:0 400px 50px 0;
@@ -5048,12 +5050,18 @@ body.custom-background {
 	float:right;
 }
 .contact-img2{
-	height:192px;
-	width:108px;
+	height: 150px;
+	width: 100px;
+	margin-left: 60px;
 }
 
 .contact-intro2{
-	color:white;
+	height:220px;
+	float:left;
+	width: 250px;
+	color: white;
+	margin-top: 18px;
+	font-size: 1.2em;
 }
 .about-us-header{
 	color: white;

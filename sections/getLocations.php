@@ -33,7 +33,7 @@
 	   }elseif($zip_code==="" and $category===""){
 		   $sql='SELECT latitude,longitude,name,category FROM business_distribution WHERE city="'.$city.'"';
 	   }
-	   $con = mysqli_connect('localhost', 'root', '');
+	   $con = mysqli_connect('localhost', 'root', '123456');
 		mysqli_select_db($con,"data_vis");
 		$results = mysqli_query($con,$sql);
 		$lg = array();

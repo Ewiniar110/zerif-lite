@@ -6,6 +6,7 @@ include "yelping-since-preprocessedDB.php";
 include "resturant_category.php";
 include "funny_cool_useful_review_contrast.php";
 include "resturant_map.php";
+include "star-graph-city.php";
 ?>
 
 <?php
@@ -372,7 +373,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	/* CONTACT US */
 	$zerif_contactus_show = get_theme_mod('zerif_contactus_show');
-	echo '<script>var src1 = '.json_encode(get_template_directory_uri()).'+"/images/Xuezhang.jpg"</script>';
+	echo '<script>var src1 = '.json_encode(get_template_directory_uri()).'+"/images/xuezhang.jpg"</script>';
+	echo '<script>var src2 = '.json_encode(get_template_directory_uri()).'+"/images/tanpan.jpg"</script>';
 	if( isset($zerif_contactus_show) && $zerif_contactus_show != 1 ):
 		?>
 		<section class="contact-us" id="contact">
@@ -399,7 +401,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 					</div>
 					<div class="contact2">
 						<img class="contact-img2" id="contact_img2"><br>
-						<p class="contact-intro2">Pan Tan</p>
+						<p class="contact-intro2">Pan(Will) Tan,  Like watching whales, animes and programming.<br>Email:tpan1125@gmail.com</p>
 					</div>
 				</div>
 
@@ -416,4 +418,5 @@ get_footer(); ?>
 <script>
 	console.log(src1);
 	$("#contact_img1").attr("src", src1);
+	$("#contact_img2").attr("src", src2);
 </script>

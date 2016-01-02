@@ -4,9 +4,9 @@
 	$results = $wpdb->get_results($sql);
 	//save the percentage in each array;
 	//they are associative arrays
-	$cate_name = array("American","Mexican","Chinese","Italian","Japanese","French","Thai","Others");
+	$cate_name = array("American","Mexican","Chinese","Italian","Japanese","French","Thai","Indian","Korean","Greek");
 	$state_name = array("Neveda","Wisconsin","Illinois","Pennsylvania","North Carolina","Arizona","Quebec","Ontario");
-	$categories = array("american"=>array(),"mexican"=>array(),"chinese"=>array(),"italian"=>array(),"japanese"=>array(),"french"=>array(),"thai"=>array(),"others"=>array());
+	$categories = array("american"=>array(),"mexican"=>array(),"chinese"=>array(),"italian"=>array(),"japanese"=>array(),"french"=>array(),"thai"=>array(),"indian"=>array(),"korean"=>array(),"greek"=>array());
 	$all_categories = array();
 	
 	foreach($results as $result){
@@ -16,7 +16,6 @@
 		for(;$i<count($cate_name)-1;$i++){
 			$temp[$cate_name[$i]] = floatval($result->$cate_name[$i]);
 		}
-		$temp['Others'] = 1 - array_sum($temp);
 		$all_categories[$state] = $temp;
 		
 	}
@@ -45,12 +44,12 @@ for(;i<cate_name.length;i++){
 }
 
 $(function () {
-    $('#resturant_category_fig').highcharts({
+    $('#resturant_category_figI').highcharts({
         chart: {
             type: 'area'
         },
         title: {
-            text: 'Featured Restaurant Distribution by Region'
+            text: 'Featured Resturant Distribution by Region'
         },
         xAxis: {
             categories: state_name,

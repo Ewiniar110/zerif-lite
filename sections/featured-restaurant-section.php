@@ -11,7 +11,7 @@
 
 			<?php 
 			
-				echo '<h2 class="white-text">'.__('Featured Resturants','zerif-lite').'</h2>';
+				echo '<h2 class="white-text">'.__('Featured Restaurants','zerif-lite').'</h2>';
 			
 			?>
 			<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
