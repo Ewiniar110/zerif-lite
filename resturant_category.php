@@ -44,6 +44,7 @@ for(;i<cate_name.length;i++){
 	});
 }
 
+//plot the figure of featured restaurant distribution
 $(function () {
     $('#resturant_category_fig').highcharts({
         chart: {

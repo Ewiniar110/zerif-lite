@@ -8,7 +8,7 @@
 	$results =  $wpdb->get_results('SELECT stars,city FROM yelp_business' );
 	
 	foreach ( $results as $result ) {
-	//calculate counts
+	
 	$star = $result->stars;
 	$star_float = floatval($star);
 	$city = $result->city;
@@ -51,6 +51,7 @@
 	
 	for($i = 0;$i<count($city_array);$i++){
 		$city_star[$i] = $city_star[$i]/$city_business_counts[$i];
+		//find the 10 cities with the smallest star
 		if($city_business_counts[$i]>20){
 			if($objPQMin->count()< 10 ){
 				$objPQMin->insert($city_array[$i],$city_star[$i]);
@@ -61,7 +62,7 @@
 					$objPQMin->insert($city_array[$i],$city_star[$i]);
 				}
 			}
-			
+			//find the 10 cities with the largest star
 			if($objPQMax->count()<10 ){
 				$objPQMax->insert($city_array[$i],$city_star[$i]);
 			}else{
@@ -72,8 +73,11 @@
 			}
 		}
 	}
+	//point to the top of the queue
 	$objPQMin->top(); 
 	$objPQMax->top();
+	//extract both the priority and the data
+	//data is the city while priority is the average business star in this city
 	$objPQMin->setExtractFlags(PQMin::EXTR_BOTH);
 	$objPQMax->setExtractFlags(PQMax::EXTR_BOTH);
 	

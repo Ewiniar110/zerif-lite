@@ -15,13 +15,16 @@ public class YelpingSince {
 		FileWriter fileWriter = null;
 		BufferedReader br=null;
 		try{
+			// read the data in a csv file
 			FileReader reader = new FileReader(jsonFilePath);;
 			br = new BufferedReader(reader);
 			String line;
 			line=br.readLine();
+			// two arrays where the number of increased users are stored
 			int[] yearlyIncrease = new int[12];
 			int[][] monthlyIncrease = new int[12][12];
 			while(line!=null){
+				//parse each line of the original data of csv and return a json object
 				Object obj = parser.parse(line);
 				JSONObject jsonObject = (JSONObject) obj;
 				String yelpingYearStr = (String) jsonObject.get(type1);
@@ -29,6 +32,7 @@ public class YelpingSince {
 				String yelpingMonthStr = yelpingYearStr.substring(len-2, len);
 				yelpingYearStr = yelpingYearStr.substring(0, 4);
 				int yelpingYear=Integer.parseInt(yelpingYearStr),yelpingMonth=Integer.parseInt(yelpingMonthStr);
+				//increase the number by 1
 				yearlyIncrease[yelpingYear-2004]++;
 				monthlyIncrease[yelpingYear-2004][yelpingMonth-1]++;
 				line = br.readLine();

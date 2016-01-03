@@ -2,6 +2,7 @@
 	$q = $_REQUEST["q"];
 	$i = strpos($q,",");
 	$j = strripos($q,",");
+	//get the city,zip code and category from the string sent by ajax
 	$city = substr($q,0,$i);
 	$zip_code = substr($q,$i+1,$j-$i-1);
 	if($j<strlen($q)-1){
@@ -22,8 +23,10 @@
 				$sql='SELECT latitude,longitude,name,category FROM business_distribution WHERE zip_code="'.$zip_code.'" AND city="'.$city.'"';
 			}
 		}
+		//if the zip code is specified
 	   elseif($zip_code!=="" and $category==="" ){
 		   $sql='SELECT latitude,longitude,name,category FROM business_distribution WHERE zip_code="'.$zip_code.'" AND city="'.$city.'"';
+		   //if the zip code is specified
 	   }elseif($zip_code==="" and $category!==""){
 		   if($category!=="All"){
 		   $sql='SELECT latitude,longitude,name,category FROM business_distribution WHERE city="'.$city.'" AND category="'.$category.'"';
@@ -33,6 +36,7 @@
 	   }elseif($zip_code==="" and $category===""){
 		   $sql='SELECT latitude,longitude,name,category FROM business_distribution WHERE city="'.$city.'"';
 	   }
+	   // connect to the database
 	   $con = mysqli_connect('localhost', 'root', '123456');
 		mysqli_select_db($con,"data_vis");
 		$results = mysqli_query($con,$sql);
@@ -40,6 +44,7 @@
 		$lat = array();
 		$name = array();
 		$category = array();
+		//push the data
 		while($row = mysqli_fetch_array($results)) {
 			array_push($lat,$row['latitude']);
 			array_push($lg,$row['longitude']);
@@ -51,6 +56,7 @@
 		array_push($locations,$lg);
 		array_push($locations,$name);
 		array_push($locations,$category);
+		// return the data
 		echo json_encode($locations);
 	   
 	}else{
