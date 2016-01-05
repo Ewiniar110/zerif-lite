@@ -1,5 +1,5 @@
 === About ===
-This is a website built based on a WordPress theme called Zerif Lite. In this web application, highcharts as well as Goolge Map are the main tools used to visualize the data from Yelp. The original data from Yelp are parsed in JAVA using the org.json. This website has been published with the URL of http://funfactsbehindbusiness.com. 
+This is a website based on a WordPress theme called Zerif Lite. In this web application, highcharts as well as Goolge Map are the main tools used to visualize the data from Yelp. The original data from Yelp are parsed in JAVA using the org.json. This website has been published with the URL of http://funfactsbehindbusiness.com. 
 === Contributors ===
 Xuezhang(Alex) Hu, ambitious programmer who likes sports and spicy food. Email:hxzpork@gmail.com
 Pan(WIll) Tan, who like watching whales, animes and programming. Email:tpan1125@gmail.com 
