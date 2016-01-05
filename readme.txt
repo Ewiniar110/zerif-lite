@@ -1,4 +1,11 @@
-=== Zerif Lite ===
+=== About ===
+This is a website built based on a WordPress theme called Zerif Lite. In this web application, highcharts as well as Goolge Map are the main tools used to visualize the data from Yelp. The original data from Yelp are parsed in JAVA using the org.json. This website has been published with the URL of http://funfactsbehindbusiness.com. 
+=== Contributors ===
+Xuezhang(Alex) Hu, ambitious programmer who likes sports and spicy food. Email:hxzpork@gmail.com
+Pan(WIll) Tan, who like watching whales, animes and programming. Email:tpan1125@gmail.com 
+
+
+========== Zerif Lite ============
 Contributors:		codeinwp
 Tags:				black, gray, red, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
 Requires at least:	3.3.0
